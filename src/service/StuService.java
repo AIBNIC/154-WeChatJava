@@ -11,7 +11,7 @@ import entry.StuInfo;
 public class StuService {
 	XywUser user = new XywUser();
 	AmbmsService service = new AmbmsService();
-//	1´ú±íÄÜ²éµ½Ñ§ÉúĞÅÏ¢£¬0´ú±í²é²»µ½Ñ§ÉúĞÅÏ¢
+//	1ä»£è¡¨èƒ½æŸ¥åˆ°å­¦ç”Ÿä¿¡æ¯ï¼Œ0ä»£è¡¨æŸ¥ä¸åˆ°å­¦ç”Ÿä¿¡æ¯
 	public StuInfo search(String content) throws Exception {
 		StuInfo stuinfo = user.Search(content, content, content);
 		if(stuinfo.getStu_name()!=null || !"".equals(stuinfo.getStu_name())) {
@@ -19,7 +19,7 @@ public class StuService {
 		}
 		return null;
 	}
-//	ÖØÖÃËŞÉá´ÎÊı
+//	é‡ç½®å®¿èˆæ¬¡æ•°
 	public JSONObject uproom(String userid) {
 		JSONObject rs = new JSONObject();
 		int count = user.uproom(userid);

@@ -24,7 +24,7 @@ public class SearchNameServlet extends HttpServlet {
 			String info = request.getParameter("info");
 			String user = request.getParameter("user");
 		}else {
-			System.out.println("sessionidÎª¿Õ»òsession²»ÕıÈ·");
+			System.out.println("sessionidä¸ºç©ºæˆ–sessionä¸æ­£ç¡®");
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

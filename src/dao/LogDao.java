@@ -15,7 +15,7 @@ public class LogDao {
 	PreparedStatement pstm = null;
 	ResultSet rs = null;
 	
-//	查找网管信息
+//	鏌ユ壘缃戠淇℃伅
 	public UserInfo searchUser(String user_name ) {
 //		Connection con = db.getConnection("lww", "xzw", "***REMOVED***","211.66.88.169");
 		Connection con = db.getConnection("lww", "xzw", "***REMOVED***","211.66.88.169");		

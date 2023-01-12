@@ -23,7 +23,7 @@ public class LoginDao {
 	ResultSet rs = null;
 	Connection con = db.getConnection("fhy", "root", "123456");
 
-//	ÑéÖ¤µÇÂ¼
+//	éªŒè¯ç™»å½•
 /**	
 	
 	public Map<String, Comparable> login(String loginid, String loginpwd) {
@@ -35,9 +35,9 @@ public class LoginDao {
 			rs = pstm.executeQuery();
 			Map<String, Comparable> data = new HashMap();
 			if (rs.next()) {
-//				»ñÈ¡Êı¾İ¿âÃÜÂë
+//				è·å–æ•°æ®åº“å¯†ç 
 				String user_password = rs.getString("user_password");
-//				ÓÃ»§ÊäÈëÃÜÂëÓëÊı¾İ¿âÃÜÂëÊÇ·ñÆ¥Åä
+//				ç”¨æˆ·è¾“å…¥å¯†ç ä¸æ•°æ®åº“å¯†ç æ˜¯å¦åŒ¹é…
 				if (loginpwd.equals(user_password)) {
 					String user_name = rs.getString("user_name");
 					String user_number = rs.getString("user_number");
@@ -57,13 +57,13 @@ public class LoginDao {
 					data.put("user_identity", user_identity);
 					return data;
 				} else {
-					System.out.println("ÃÜÂë´íÎó");
-					data.put("msg", "ÃÜÂë´íÎó");
+					System.out.println("å¯†ç é”™è¯¯");
+					data.put("msg", "å¯†ç é”™è¯¯");
 					return data;
 				}
 			} else {
-				System.out.println("ÕÒ²»µ½ÈË");
-				data.put("msg", "ÓÃ»§²»´æÔÚ");
+				System.out.println("æ‰¾ä¸åˆ°äºº");
+				data.put("msg", "ç”¨æˆ·ä¸å­˜åœ¨");
 				return data;
 			}
 
@@ -81,10 +81,10 @@ public class LoginDao {
 	}
 
 	
-//»ñÈ¡openid
+//è·å–openid
 	public String getOppid(String JSCODE) {
 		BufferedReader in = null;
-//		Æ´×°url
+//		æ‹¼è£…url
 		String AppId = "***REMOVED***";
 		String AppSecret = "***REMOVED***";
 		String url = "https://api.weixin.qq.com/sns/jscode2session?" + "appid=" + AppId + "&secret=" + AppSecret
@@ -95,15 +95,15 @@ public class LoginDao {
 			weChatUrl = new URL(url);
 
 			URLConnection connection = weChatUrl.openConnection();
-			// ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
+			// è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§
 			connection.setConnectTimeout(5000);
 			connection.setReadTimeout(5000);
-			// ½¨Á¢Êµ¼ÊµÄÁ¬½Ó
+			// å»ºç«‹å®é™…çš„è¿æ¥
 			connection.connect();
-			// ¶¨Òå BufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
+			// å®šä¹‰ BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
 			in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String sb = "";
-//			¶ÁÈ¡Êı¾İ
+//			è¯»å–æ•°æ®
 			String line;
 			while ((line = in.readLine()) != null) {
 				sb += line;

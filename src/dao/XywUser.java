@@ -44,11 +44,11 @@ public class XywUser {
 				String state = infos[0];
 				String end_time = infos[1];
 //				String end_time =null;
-//				String state = "µçĞÅ";
+//				String state = "ç”µä¿¡";
 				info = new StuInfo(stu_name, stu_idcard, stu_number, stu_major, stu_room, end_time,uproom,state);
 //				return stuinfo;
 			} else {
-				info.setMsg("ÕÒ²»µ½´ËÈË");
+				info.setMsg("æ‰¾ä¸åˆ°æ­¤äºº");
 			}
 
 			return info;
@@ -63,7 +63,7 @@ public class XywUser {
 		}
 		return null;
 	}
-//	ÖØÖÃËŞÉá´ÎÊı
+//	é‡ç½®å®¿èˆæ¬¡æ•°
 	public int uproom(String userid) {
 		try {
 			Connection con = db.getConnection("xyw", "xyw", "***REMOVED***","211.66.88.165");

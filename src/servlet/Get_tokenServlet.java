@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Get_tokenServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		//		Éú³Étoken
+		//		ç”Ÿæˆtoken
 		String token = UUID.randomUUID().toString();
 		String o = request.getParameter("token");
 		out.print(o);

@@ -13,7 +13,7 @@ public class Getopenid_stuInfoService {
 		String wechat = service.cookie(code);
 		JSONObject json = JSONObject.parseObject(wechat);
 		String openid = json.getString("openid");
-//		System.out.println("µ÷ÓÃGetopenid_stuInfoService£¬openid£º"+openid);
+//		System.out.println("è°ƒç”¨Getopenid_stuInfoServiceï¼Œopenidï¼š"+openid);
 		if (openid != null || "".equals(openid)) {
 			UserDao dao = new UserDao();
 			UserInfo userInfo = dao.searchUserByOpenid(openid);

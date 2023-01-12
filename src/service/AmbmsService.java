@@ -18,7 +18,7 @@ public class AmbmsService {
 			}
 		}
 		String states = (String) items.get(10);
-		String state = states.replace("Ì×²Í","");
+		String state = states.replace("å¥—é¤","");
 		String end_time = (String)items.get(13);
 		String[] info = {state,end_time};
 		return info;

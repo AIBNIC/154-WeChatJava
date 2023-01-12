@@ -42,7 +42,7 @@ public class SearchUserInfoServlet extends HttpServlet {
 				}
 
 			} else {
-				System.out.println("sessionidÎª¿Õ»òsession²»ÕıÈ·");
+				System.out.println("sessionidä¸ºç©ºæˆ–sessionä¸æ­£ç¡®");
 				
 			}
 		} catch (Exception e) {

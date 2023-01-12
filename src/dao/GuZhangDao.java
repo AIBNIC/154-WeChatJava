@@ -16,12 +16,12 @@ public class GuZhangDao {
 	PreparedStatement pstm = null;
 	ResultSet rs = null;
 
-//	²éÑ¯È«²¿¹ÊÕÏ
+//	æŸ¥è¯¢å…¨éƒ¨æ•…éšœ
 	public ArrayList<Map<String, String>> searchAll() {
 		Connection con = db.getConnection("xyw", "xyw", "***REMOVED***","211.66.88.165");
 		String sql = "SELECT a.username,a.xuehao," + "b.faultcontent,b.create_time,b.lh,b.fh,b.faultname,b.id "
 				+ "FROM xyw_user a LEFT JOIN xyw_fault b "
-				+ "ON a.xuehao=b.userid where b.state=0 and b.lh LIKE '±±Çø%' ";
+				+ "ON a.xuehao=b.userid where b.state=0 and b.lh LIKE 'åŒ—åŒº%' ";
 		try {
 			pstm = con.prepareStatement(sql);
 			rs = pstm.executeQuery();
@@ -62,7 +62,7 @@ public class GuZhangDao {
 		return null;
 	}
 
-//	É¾³ı¹ÊÕÏ
+//	åˆ é™¤æ•…éšœ
 	public int delate(String user_id, String fault_id) {
 		Connection con = db.getConnection("xyw", "xyw", "***REMOVED***","211.66.88.165");
 		String finish_time = time.getTime();
@@ -75,7 +75,7 @@ public class GuZhangDao {
 			pstm.setString(4, fault_id);
 			int count = pstm.executeUpdate();
 			System.out.println(count);
-//			0ÎªĞŞ¸Ä³É¹¦£¬1ÎªĞŞ¸ÄÊ§°Ü£¬2ÎªºóÌ¨´úÂë³ö´í
+//			0ä¸ºä¿®æ”¹æˆåŠŸï¼Œ1ä¸ºä¿®æ”¹å¤±è´¥ï¼Œ2ä¸ºåå°ä»£ç å‡ºé”™
 			if (count == 1) {
 				return 1;
 			} else {
@@ -95,7 +95,7 @@ public class GuZhangDao {
 		return 2;
 	}
 
-//	¸ù¾İ¶°Êı²éÑ¯
+//	æ ¹æ®æ ‹æ•°æŸ¥è¯¢
 	public ArrayList searchByDs(String ds) {
 		Connection con = db.getConnection("xyw", "xyw", "***REMOVED***","211.66.88.165");
 		try {
@@ -142,13 +142,13 @@ public class GuZhangDao {
 		return null;
 	}
 
-// 	ÉÏ±¨¹ÊÕÏ(1´ú±íÉÏ´«³É¹¦£¬0´ú±íÉÏ´«Ê§°Ü,2±íÊ¾²Ù×÷ÓĞÎó)
+// 	ä¸ŠæŠ¥æ•…éšœ(1ä»£è¡¨ä¸Šä¼ æˆåŠŸï¼Œ0ä»£è¡¨ä¸Šä¼ å¤±è´¥,2è¡¨ç¤ºæ“ä½œæœ‰è¯¯)
 	public int UpGuZhang(String student_name ,String student_id ,String lh,String fh,String student_error) {
 		try {
 			String reatime_time = time.getTime();
 			Connection con = db.getConnection("xyw", "xyw", "***REMOVED***","211.66.88.165");
 			String sql = "INSERT INTO xyw_fault (faultname,create_time,faultcontent,userid,state,lh,fh)"
-					+ "VALUES('ÆäËû¹ÊÕÏ',?,?,?,'0',?,?)";
+					+ "VALUES('å…¶ä»–æ•…éšœ',?,?,?,'0',?,?)";
 			pstm = con.prepareStatement(sql);
 			pstm.setString(1, reatime_time);
 			pstm.setString(2, student_error);

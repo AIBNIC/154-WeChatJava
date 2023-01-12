@@ -16,11 +16,11 @@ public class SearchuserService_Thread extends Thread{
 		LogDao dao = new LogDao();
 		UserInfo userinfo = dao.searchUser(username);
 		if(userinfo != null) {
-			String type = "²éÑ¯";
+			String type = "æŸ¥è¯¢";
 			UserInfo loginfo = new UserInfo(userinfo.getUser_name(),userinfo.getUser_number(),type,ip,stuid) ;
 			dao.UpLog(loginfo);
 		}else {
-			System.out.println("ÕÒ²»µ½ÓÃ»§");
+			System.out.println("æ‰¾ä¸åˆ°ç”¨æˆ·");
 		}
 		
 	}

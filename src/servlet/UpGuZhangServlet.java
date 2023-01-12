@@ -26,9 +26,9 @@ public class UpGuZhangServlet extends HttpServlet {
 		String student_error = request.getParameter("student_error");
 		if(student_name==null || student_id==null || student_room==null || student_error==null || student_name.equals("") 
 	|| student_id.equals("") || student_room.equals("") || student_error.equals("")) {
-			out.print("{\"msg\":\"数据不能为空\"}");	
+			out.print("{\"msg\":\"鏁版嵁涓嶈兘涓虹┖\"}");	
 		}else if (student_room.indexOf("#")==-1) {
-			out.print("{\"msg\":\"宿舍格式有误\"}");
+			out.print("{\"msg\":\"瀹胯垗鏍煎紡鏈夎\"}");
 		}
 		else {
 			GuZhangService service = new GuZhangService();

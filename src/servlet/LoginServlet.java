@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/json; charset=utf-8");
 			PrintWriter out = response.getWriter();
-//			ÓÃ»§µÇÂ¼µÄĞÅÏ¢
+//			ç”¨æˆ·ç™»å½•çš„ä¿¡æ¯
 			String userId = request.getParameter("xuehao");
 			String userPwd = request.getParameter("password");
 			String code = request.getParameter("code");
@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 					out.print(userdata);
 				}
 			} else
-				out.print("ÖØĞÂµÇÂ¼");
+				out.print("é‡æ–°ç™»å½•");
 			out.flush();
 			out.close();
 		} catch (Exception e) {

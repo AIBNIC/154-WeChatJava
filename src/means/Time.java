@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class Time {
 	public String getTime() {
-		SimpleDateFormat sdf = new SimpleDateFormat();// ¸ñÊ½»¯Ê±¼ä 
-        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");// aÎªam/pmµÄ±ê¼Ç  
-        Date date = new Date();// »ñÈ¡µ±Ç°Ê±¼ä
+		SimpleDateFormat sdf = new SimpleDateFormat();// æ ¼å¼åŒ–æ—¶é—´ 
+        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");// aä¸ºam/pmçš„æ ‡è®°  
+        Date date = new Date();// è·å–å½“å‰æ—¶é—´
         return sdf.format(date);
 	}
 }

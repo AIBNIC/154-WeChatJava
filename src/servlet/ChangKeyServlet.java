@@ -30,7 +30,7 @@ public class ChangKeyServlet extends HttpServlet {
 			JSONObject rs = service.Changpwd(newpassword, user_number, password);
 			out.print(rs);
 		}else {
-			out.print("{\"msg\":\"ÃÜÂë²»ÄÜÎª¿Õ\"}");
+			out.print("{\"msg\":\"å¯†ç ä¸èƒ½ä¸ºç©º\"}");
 		}
 	
 	}

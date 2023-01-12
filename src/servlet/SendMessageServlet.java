@@ -32,7 +32,7 @@ public class SendMessageServlet extends HttpServlet {
 			System.out.println(fault_ms);
 			System.out.println(name);
 		}
-		System.out.println("session²»Æ¥Åä");
+		System.out.println("sessionä¸åŒ¹é…");
 	
 	}
 

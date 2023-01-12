@@ -15,7 +15,7 @@ public class LoginLogService extends Thread {
 	 public void run() {
 		String user_name = info.getString("user_name");
 		String user_number = info.getString("user_number");
-		String type = "µÇÂ¼";
+		String type = "ç™»å½•";
 		UserInfo loginfo = new UserInfo(user_name,user_number,type,ip,null);
 		LogDao dao = new LogDao();
 		dao.UpLog(loginfo);

@@ -11,10 +11,10 @@ public class DbManager {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(url, name, pwd);
 		} catch (ClassNotFoundException e) {
-			System.out.println("Êı¾İ¿âÇı¶¯³ö´í");
+			System.out.println("æ•°æ®åº“é©±åŠ¨å‡ºé”™");
 			e.printStackTrace();
 		} catch (SQLException e) {
-			System.out.println("SQLÓï¾äÓĞÎó");
+			System.out.println("SQLè¯­å¥æœ‰è¯¯");
 			e.printStackTrace();
 		}
 		return con;

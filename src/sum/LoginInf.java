@@ -19,19 +19,19 @@ public class LoginInf {
 		}
 //		token
 		String token = UUID.randomUUID().toString();
-		userdata.put("success", "登录成功");
-//		登录日志
+		userdata.put("success", "鐧诲綍鎴愬姛");
+//		鐧诲綍鏃ュ織
 		LoginLogService serice = new LoginLogService(userdata,ip);
 		serice.start();
 
-//		获取openid
+//		鑾峰彇openid
 		String wx = service.cookie(code);
 		JSONObject json = JSONObject.parseObject(wx);
 		String session_key = json.getString("session_key");
 		String openid = json.getString("openid");
 		String old_openid = userdata.getString("wx_openid");
-//		System.out.println("验证code");
-//		更新openid
+//		System.out.println("楠岃瘉code");
+//		鏇存柊openid
 		if (!openid.equals(old_openid)) {
 			userdata.put("openid", openid);
 			service.upData(old_openid, openid, id);

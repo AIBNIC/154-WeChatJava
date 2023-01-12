@@ -20,7 +20,7 @@ public class UserDao {
 	PreparedStatement pstm = null;
 	ResultSet rs = null;
 
-//	ÑéÖ¤µÇÂ¼
+//	éªŒè¯ç™»å½•
 	public JSONObject searchUserById(String loginid) {
 		Connection con = db.getConnection("lww", "xzw", "***REMOVED***","211.66.88.169");
 		try {
@@ -50,7 +50,7 @@ public class UserDao {
 				stu.put("wx_check", wx_check);
 				return stu;
 			} else {
-				stu.put("msg", "ÕÒ²»µ½ÈË");
+				stu.put("msg", "æ‰¾ä¸åˆ°äºº");
 				return stu;
 			}
 		} catch (SQLException e) {
@@ -66,10 +66,10 @@ public class UserDao {
 		return null;
 	}
 
-//»ñÈ¡session_keyºÍopenid
+//è·å–session_keyå’Œopenid
 	public String getOppid(String JSCODE) {
 		BufferedReader in = null;
-//		Æ´×°url
+//		æ‹¼è£…url
 		String AppId = "***REMOVED***";
 		String AppSecret = "***REMOVED***";
 		String url = "https://api.weixin.qq.com/sns/jscode2session?" + "appid=" + AppId + "&secret=" + AppSecret
@@ -79,15 +79,15 @@ public class UserDao {
 		try {
 			weChatUrl = new URL(url);
 			URLConnection connection = weChatUrl.openConnection();
-			// ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
+			// è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§
 			connection.setConnectTimeout(5000);
 			connection.setReadTimeout(5000);
-			// ½¨Á¢Êµ¼ÊµÄÁ¬½Ó
+			// å»ºç«‹å®é™…çš„è¿æ¥
 			connection.connect();
-			// ¶¨Òå BufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
+			// å®šä¹‰ BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
 			in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String sb = "";
-//			¶ÁÈ¡Êı¾İ
+//			è¯»å–æ•°æ®
 			String line;
 			while ((line = in.readLine()) != null) {
 				sb += line;
@@ -110,7 +110,7 @@ public class UserDao {
 		return null;
 	}
 
-//¸ü»»openid
+//æ›´æ¢openid
 	public void upData(String old_openid, String openid, String user_number) {
 		Connection con = db.getConnection("lww", "xzw", "***REMOVED***","211.66.88.169");		
 		String sql = "UPDATE wx_users set wx_openid=? , wx_check=1 where user_number=? ";
@@ -121,7 +121,7 @@ public class UserDao {
 			int count = pstm.executeUpdate();
 
 			if (count != 0) {
-//				System.out.println("³É¹¦¸ü»»code");
+//				System.out.println("æˆåŠŸæ›´æ¢code");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -129,7 +129,7 @@ public class UserDao {
 		}
 	}
 
-//	²éÑ¯Íø¹Ü
+//	æŸ¥è¯¢ç½‘ç®¡
 	public UserInfo searchUserByOpenid(String check_openid) {
 		Connection con = db.getConnection("lww", "xzw", "***REMOVED***","211.66.88.169");	
 		try {
@@ -164,7 +164,7 @@ public class UserDao {
 		return null;
 	}
 
-//	¸ü¸ÄÃÜÂë
+//	æ›´æ”¹å¯†ç 
 	public int Changpwd(String newuserpwd, String userid, String userpwd) {
 		try {
 			System.out.println(newuserpwd);

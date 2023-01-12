@@ -9,26 +9,26 @@ import entry.UserInfo;
 public class WeChatUserService {
 	UserDao dao = new UserDao();
 
-//	µÇÂ¼
+//	ç™»å½•
 	public JSONObject login(String loginid, String loginpwd) {
 		JSONObject student = dao.searchUserById(loginid);
 		if (loginpwd.equals(student.getString("user_password"))) {
 			
 			return student;
 		} else if (student.getString("msg") == null) {
-			student.put("msg", "ÃÜÂëÓĞÎó");
+			student.put("msg", "å¯†ç æœ‰è¯¯");
 			return student;
 		}
 		return student;
 	}
 
-//	»ñÈ¡sessionid
+//	è·å–sessionid
 	public String cookie(String code) {
 		String sb = dao.getOppid(code);
 		return sb;
 	}
 
-//	¸üĞÂopenid
+//	æ›´æ–°openid
 	public void upData(String old_openid, String openid, String user_number) {
 		dao.upData(old_openid, openid, user_number);
 	}
@@ -39,7 +39,7 @@ public class WeChatUserService {
 			JSONObject stu = dao.searchUserById(num);
 			String opin = stu.getString("wx_openid");
 			if (!opin.equals(openid)) {
-				System.out.println("codeÓëÊı¾İ¿âµÄcode²»Ïà·û£¬²»ÔÊĞíµÇÂ¼");
+				System.out.println("codeä¸æ•°æ®åº“çš„codeä¸ç›¸ç¬¦ï¼Œä¸å…è®¸ç™»å½•");
 				return null;
 			}
 			return stu;
@@ -48,15 +48,15 @@ public class WeChatUserService {
 		}
 		return null;
 	}
-//	¸ü»»ÃÜÂë
+//	æ›´æ¢å¯†ç 
 	public JSONObject Changpwd(String newuserpwd , String userid , String userpwd) {
 		JSONObject rs= new JSONObject();
 		int count = dao.Changpwd(newuserpwd, userid, userpwd);
 		if(count == 1) {
-			rs.put("msg", "ĞŞ¸Ä³É¹¦");
+			rs.put("msg", "ä¿®æ”¹æˆåŠŸ");
 			return rs;
 		}else{
-			rs.put("msg", "ºóÌ¨³ö´í");
+			rs.put("msg", "åå°å‡ºé”™");
 			return rs;
 		}
 	

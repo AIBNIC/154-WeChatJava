@@ -11,57 +11,57 @@ import entry.StuInfo;
 public class GuZhangService {
 	GuZhangDao dao = new GuZhangDao();
 
-//	²éÑ¯È«²¿
+//	æŸ¥è¯¢å…¨éƒ¨
 	public ArrayList<?> searchall() {
 		ArrayList<?> gzs = dao.searchAll();
 		return gzs;
 	}
 
-//	²éÑ¯Ä³Ò»¶°
+//	æŸ¥è¯¢æŸä¸€æ ‹
 	public ArrayList searchByDs(String ds) {
 		ArrayList gzs = dao.searchByDs(ds);
 		return gzs;
 	}
 
-//É¾³ı¹ÊÕÏ
+//åˆ é™¤æ•…éšœ
 	public JSONObject delataGuZhang(String sb) {
 		JSONObject json = JSONObject.parseObject(sb);
 		String fault_id = json.getString("fault_id");
 		String repair_id = json.getString("repair_id");
 		int rs = dao.delate(repair_id, fault_id);
 		JSONObject rsjson = new JSONObject();
-//		1ÎªĞŞ¸Ä³É¹¦£¬0ÎªĞŞ¸ÄÊ§°Ü£¬2ÎªºóÌ¨´úÂë³ö´í
+//		1ä¸ºä¿®æ”¹æˆåŠŸï¼Œ0ä¸ºä¿®æ”¹å¤±è´¥ï¼Œ2ä¸ºåå°ä»£ç å‡ºé”™
 		if (rs == 0) {
-			rsjson.put("msg", "ĞŞ¸ÄÊ§°Ü");
+			rsjson.put("msg", "ä¿®æ”¹å¤±è´¥");
 		} else if (rs == 1) {
-			rsjson.put("rs", "ĞŞ¸Ä³É¹¦");
+			rsjson.put("rs", "ä¿®æ”¹æˆåŠŸ");
 		} else {
-			rsjson.put("msg", "ºóÌ¨³ö´í£¬Çë¼ì²é");
+			rsjson.put("msg", "åå°å‡ºé”™ï¼Œè¯·æ£€æŸ¥");
 		}
 		return rsjson;
 	}
 
-//	ÉÏ´«¹ÊÕÏ
-//	0ÎªĞŞ¸ÄÊ§°Ü£¬1ÎªĞŞ¸Ä³É¹¦£¬2ÎªºóÌ¨´úÂë³ö´í
+//	ä¸Šä¼ æ•…éšœ
+//	0ä¸ºä¿®æ”¹å¤±è´¥ï¼Œ1ä¸ºä¿®æ”¹æˆåŠŸï¼Œ2ä¸ºåå°ä»£ç å‡ºé”™
 	public JSONObject UpGuZhang(String student_name, String student_id, String student_room, String student_error) {
 		XywUser user = new XywUser();
 		StuInfo info = user.Search(student_name, student_id, student_name);
 		JSONObject rsjson = new JSONObject();
 		if (info.getStu_name() != null) {
 			String[] room = student_room.split("#");
-			String lh = "±±Çø" + room[0] + "¶°";
+			String lh = "åŒ—åŒº" + room[0] + "æ ‹";
 			String fh = room[1];
 			int rs = dao.UpGuZhang(student_name, student_id, lh, fh, student_error);
 			if (rs == 0) {
-				rsjson.put("msg", "ĞŞ¸ÄÊ§°Ü");
+				rsjson.put("msg", "ä¿®æ”¹å¤±è´¥");
 			} else if (rs == 1) {
-				rsjson.put("success", "ĞŞ¸Ä³É¹¦");
+				rsjson.put("success", "ä¿®æ”¹æˆåŠŸ");
 			} else {
-				rsjson.put("msg", "ºóÌ¨³ö´í£¬Çë¼ì²é");
+				rsjson.put("msg", "åå°å‡ºé”™ï¼Œè¯·æ£€æŸ¥");
 			}
 			return rsjson;
 		}
-		rsjson.put("msg", "Ñ§ºÅ»òÕßĞÕÃû³ö´í");
+		rsjson.put("msg", "å­¦å·æˆ–è€…å§“åå‡ºé”™");
 		return rsjson;
 	}
 
